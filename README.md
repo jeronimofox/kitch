@@ -29,4 +29,3 @@ Kitch Academy is growing by the community shared docs and available to everyone.
 - sponsorships of the projects
 - sponsorships of the kitch
 - etc...
-# kitch
