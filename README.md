@@ -1,6 +1,6 @@
-# Kitch
+<img src="./docs/KITCH_LOGO_1.svg" WIDTH="311" HEIGHT="136">
 
-<img src="/home/andrew/projects/kitch/kitch/docs/KITCH_LOGO_1.svg" WIDTH="311" HEIGHT="136" alt="kitch">
+# Kitch
 
 ## About Kitch
 
