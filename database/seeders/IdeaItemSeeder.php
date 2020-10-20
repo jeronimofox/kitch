@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Team;
+use App\Models\IdeaItem;
 use Illuminate\Database\Seeder;
 
-class TeamSeeder extends Seeder
+class IdeaItemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        Team::factory(30)->create();
+        IdeaItem::factory(200)->create();
     }
 }

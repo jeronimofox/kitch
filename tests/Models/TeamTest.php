@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Models;
+namespace Tests\Models;
 
 use App\Models\Team;
 use App\Models\TeamMember;
@@ -28,7 +28,6 @@ class TeamTest extends TestCase
         $this->assertIsObject($team);
         $this->assertIsString($team->name);
         $this->assertIsArray($team->toArray());
-
     }
 
     /**
@@ -58,7 +57,5 @@ class TeamTest extends TestCase
         $this->assertIsArray($teamMembers->toArray());
         $this->assertNotEmpty($teamMembers);
         $this->assertEquals($teamMembersDirty->count(), $teamMembers->count());
-
     }
-
 }

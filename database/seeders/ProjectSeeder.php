@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Team;
+use App\Models\Project;
 use Illuminate\Database\Seeder;
 
-class TeamSeeder extends Seeder
+class ProjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        Team::factory(30)->create();
+        Project::factory(200)->create();
     }
 }

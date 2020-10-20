@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Models;
+namespace Tests\Models;
 
 use App\Models\TeamMember;
 use App\Models\User;
@@ -8,8 +8,6 @@ use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-
-
     public function testGetAllUsers()
     {
         $this->assertIsObject((new User)->all()->each(fn(User $user) => $this->assertIsObject($user)));
@@ -23,13 +21,12 @@ class UserTest extends TestCase
         $this->assertIsObject($user);
         $this->assertIsString($user->first_name);
         $this->assertIsArray($user->toArray());
-
     }
 
     /**
      * test $user->teams relationship
      */
-    public function testUserToTeamRelationship()
+    public function testTeams()
     {
         $user = User::all()->random();
 
@@ -53,6 +50,11 @@ class UserTest extends TestCase
         $this->assertIsArray($userMemberships->toArray());
         $this->assertNotEmpty($userMemberships);
         $this->assertEquals($userMembershipsDirty->count(), $userMemberships->count());
+    }
 
+    public function testProjects()
+    {
+        $user = User::all()->random();
+        $this->assertEquals($user->id, $user->projects->first()->members->first()->id);
     }
 }

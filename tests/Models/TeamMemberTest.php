@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Models;
+namespace Tests\Models;
 
 use Tests\TestCase;
 
@@ -16,5 +16,4 @@ class TeamMemberTest extends TestCase
         (new TeamTest)->testTeamToUserRelationship();
         (new UserTest)->testUserToTeamRelationship();
     }
-
 }

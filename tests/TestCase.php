@@ -16,10 +16,12 @@ abstract class TestCase extends BaseTestCase
         $methods = get_class_methods($this);
         $methods[array_search('testPrint', $methods)] = 'uselessValueLOL';
         array_map(
-            fn(string $method) => !Str::startsWith($method, 'test')
-                ?: print_r("\n testing " . $method . "() ... \n")
-            , $methods);
+            fn (string $method) => !Str::startsWith($method, 'test')
+                ?: print_r("\n testing " . $method . "() ... \n"),
+            $methods
+        );
         print_r("\n TEST DONE. \n");
         print_r("==============================================");
+        $this->assertIsBool(true);
     }
 }

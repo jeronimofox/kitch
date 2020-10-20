@@ -14,8 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(100)->create();
+        User::factory(50)->create();
         (new TeamSeeder)->run();
         (new TeamMemberSeeder)->run();
+        (new IdeaSeeder)->run();
+        (new ProjectSeeder)->run();
+        (new ProductSeeder)->run();
+        (new ProjectMemberSeeder)->run();
+        (new ProjectProductSeeder)->run();
+        (new ProjectItemSeeder)->run();
+        (new IdeaItemSeeder)->run();
     }
 }

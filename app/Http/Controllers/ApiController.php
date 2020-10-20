@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use PhpParser\Comment\Doc;
+use ReflectionException;
 use ReflectionMethod;
 
 class ApiController extends Controller
 {
-
-
     public $model;
 
     /**
@@ -20,7 +19,6 @@ class ApiController extends Controller
      */
     public function __construct()
     {
-
         $name = "\App\Models\\" . \Str::between(class_basename($this), 'Controllers\\', 'Controller');
         $this->model = new $name();
     }
@@ -29,8 +27,7 @@ class ApiController extends Controller
      * ->GET /;
      * @return Collection|Model[]
      */
-    public
-    function index()
+    public function index()
     {
         return $this->model->all();
     }
@@ -41,8 +38,7 @@ class ApiController extends Controller
      * @param Request $request
      * @return Model
      */
-    public
-    function show($model, Request $request)
+    public function show($model, Request $request)
     {
         return (!empty($request->get('with'))
             ? $this->model->find($model)->load($request->get('with'))
@@ -55,8 +51,7 @@ class ApiController extends Controller
      * @param Request $request
      * @return bool
      */
-    public
-    function update($model, Request $request)
+    public function update($model, Request $request)
     {
         //todo validate
         return $this->model->find($model)->update($request->all());
@@ -67,8 +62,7 @@ class ApiController extends Controller
      * @param Request $request
      * @return bool
      */
-    public
-    function store(Request $request)
+    public function store(Request $request)
     {
         //todo validate
         return $this->model->create($request->all());
@@ -79,16 +73,17 @@ class ApiController extends Controller
      * @param Model $model
      * @return bool|null
      */
-    public
-    function destroy(Model $model)
+    public function destroy(Model $model)
     {
         return $model->forceDelete();
     }
 
-    public
-    function registerRoutes()
+    /**
+     * @return array
+     * @throws ReflectionException
+     */
+    public function registerRoutes()
     {
-
         $methods = get_class_methods($this);
 
         $entityName = Str::lower(\Str::between(class_basename($this), 'Controllers\\', 'Controller'));
@@ -115,12 +110,7 @@ class ApiController extends Controller
                 'action' => "{$className}@{$method}",
                 'name' => $method];
             $routes[] = $params;
-
         }
         return ["ns" => $namespace, 'name' => $groupName . '.', 'prefix' => $groupName . '/', 'routes' => $routes];
-
-
     }
-
-
 }
