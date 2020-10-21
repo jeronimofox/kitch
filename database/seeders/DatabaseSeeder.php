@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         (new ProjectProductSeeder)->run();
         (new ProjectItemSeeder)->run();
         (new IdeaItemSeeder)->run();
+        (new MembershipInvitationSeeder)->run();
     }
 }

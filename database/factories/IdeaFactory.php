@@ -28,4 +28,10 @@ class IdeaFactory extends Factory
             'author_id' => User::all()->random()->id
         ];
     }
+
+    public static array $required = [
+        'title',
+        'overview',
+        'author_id'
+    ];
 }

@@ -60,7 +60,7 @@ class ProjectTest extends TestCase
         $project = Project::all()->random();
         $this->assertIsObject($project->idea);
         $this->assertNotNull($project->idea()->findOrNew(Idea::factory()->definition()));
-        $this->assertEquals($project->id, $project->idea->project->id);
+        $this->assertEquals($project->id, $project->idea()->project->id);
     }
 
     public function testProducts()

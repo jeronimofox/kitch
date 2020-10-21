@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
  * @method static find(int $randomId)
@@ -13,7 +14,6 @@ class Team extends Model
     use HasFactory;
 
     protected $fillable = [
-        "id",
         "name",
         "description",
         "logo",
@@ -25,6 +25,10 @@ class Team extends Model
     ];
 
 
+    /**
+     * get members of the team
+     * @return HasManyThrough
+     */
     public function members()
     {
         return $this->hasManyThrough(
@@ -33,6 +37,13 @@ class Team extends Model
             'team_id',
             'id',
             'id',
-            'user_id');
+            'user_id'
+        );
+    }
+
+    public function invitations()
+    {
+        return $this->hasMany(MembershipInvitation::class, 'entity_id')
+            ->where(['membership_entity' => 'team']);
     }
 }

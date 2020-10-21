@@ -9,11 +9,6 @@ class TeamMemberTest extends TestCase
 
     /**
      * pivot tests
-     * todo test create, link, delete, detach methods
+     * idea-todo test create, link, delete, detach methods
      */
-    public function testRelated()
-    {
-        (new TeamTest)->testTeamToUserRelationship();
-        (new UserTest)->testUserToTeamRelationship();
-    }
 }

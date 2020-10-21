@@ -69,7 +69,7 @@ class ApiController extends Controller
     }
 
     /**
-     * ->DELETE /{model};
+     * ->POST /delete/{model};
      * @param Model $model
      * @return bool|null
      */

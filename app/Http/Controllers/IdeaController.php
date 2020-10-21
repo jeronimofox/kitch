@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class TeamController extends ApiController
+class IdeaController extends ApiController
 {
     //
 }

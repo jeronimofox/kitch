@@ -12,6 +12,13 @@ class ProductTest extends TestCase
     {
         $product = Product::all()->random();
         $this->assertIsObject($product->projects);
-        $this->assertEquals($product->id, $product->projects()->first()->products()->first()->id);
+        $project = $product->projects->first();
+        dumP($project->products);
+        $this->assertEquals($product->id, $project->products->first()->id);
+    }
+
+    public function testProject()
+    {
+        $product = Product::all()->random();
     }
 }
