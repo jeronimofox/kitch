@@ -7,7 +7,9 @@
 Kitch is a starting point of the robo developers, who wants create new robotic solutions with support of the community
 or help others to build their own ideas with
 
-- Describe ideas and place them into the [creo](https://creo.io).
+        ## URLs in progress
+
+- Describe ideas and place them into the [creo]()
 - Create new projects(https://kitch.test/create).
 - Connect to open projects(https://kitch.test/open).
 - Help others to buy some parts for their solutions directly(https://kitch.test/requests).
